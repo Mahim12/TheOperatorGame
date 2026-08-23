@@ -56,3 +56,20 @@ async function loadGame(difficulty) {
 function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// 5. Operator Cycling Logic
+const operators = ["+", "-", "*", "/"];
+
+function cycleOperator(buttonElement) {
+  // Find what the operator currently is
+  let currentOp = buttonElement.innerText;
+
+  // Find its position in our list
+  let currentIndex = operators.indexOf(currentOp);
+
+  // Calculate the next index (and loop back to 0 if at the end)
+  let nextIndex = (currentIndex + 1) % operators.length;
+
+  // Update the button text
+  buttonElement.innerText = operators[nextIndex];
+}

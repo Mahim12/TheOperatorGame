@@ -71,16 +71,21 @@ body {
   font-weight: bold;
   color: #333;
   cursor: pointer;
-  text-align: center;
-  text-align-last: center;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   margin: 0;
   flex-shrink: 0;
   z-index: 2;
+
+  /* Prevents text highlighting on rapid taps */
+  user-select: none;
+  -webkit-user-select: none;
+
+  /* Removes default button styling on iOS */
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .lollipop-strand {

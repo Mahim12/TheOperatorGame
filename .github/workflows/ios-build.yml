@@ -31,7 +31,7 @@ jobs:
       - name: Build iOS App (Unsigned)
         run: |
           cd ios/App
-          xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -sdk iphoneos CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO clean build CONFIGURATION_BUILD_DIR=$PWD/build
+          xcodebuild -project App.xcodeproj -scheme App -configuration Release -sdk iphoneos CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO clean build CONFIGURATION_BUILD_DIR=$PWD/build
 
       - name: Package into IPA
         run: |

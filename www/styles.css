@@ -27,6 +27,12 @@ body {
   width: 200px;
 }
 
+#game-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .math-row {
   display: flex;
   align-items: center;
@@ -101,9 +107,21 @@ body {
   .number {
     font-size: 22px;
   }
-  .lollipop-slot {
-    width: 38px;
+  /* Default / Easy slot width */
+  .math-row .lollipop-slot {
+    width: 55px;
   }
+
+  /* Medium difficulty slot width */
+  .math-row.medium-difficulty .lollipop-slot {
+    width: 40px;
+  }
+
+  /* Hard difficulty slot width */
+  .math-row.hard-difficulty .lollipop-slot {
+    width: 25px;
+  }
+
   .lollipop-candy {
     width: 38px;
     height: 38px;

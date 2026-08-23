@@ -24,6 +24,12 @@ async function loadGame(difficulty) {
   // Load the game HTML first
   await loadScreen("game.html");
 
+  // Get the math-row container
+  const mathRow = document.querySelector(".math-row");
+
+  // Clear any existing difficulty classes
+  mathRow.classList.remove("medium-difficulty", "hard-difficulty");
+
   // Now that the game HTML is in the DOM, we can set up the math
   let min, max;
   if (difficulty === "easy") {
@@ -32,9 +38,11 @@ async function loadGame(difficulty) {
   } else if (difficulty === "medium") {
     min = 10;
     max = 99;
+    mathRow.classList.add("medium-difficulty"); // Applies 40px slots
   } else if (difficulty === "hard") {
     min = 100;
     max = 999;
+    mathRow.classList.add("hard-difficulty"); // Applies 25px slots
   }
 
   // Set the random numbers

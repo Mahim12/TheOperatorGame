@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">theoperator</string>
+    <string name="title_activity_main">theoperator</string>
+    <string name="package_name">com.theoperator.app</string>
+    <string name="custom_url_scheme">com.theoperator.app</string>
+</resources>

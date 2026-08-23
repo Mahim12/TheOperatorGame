@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Compact Lollipop Selectors</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f4f5f7;
+        overflow-x: hidden;
+      }
+
+      #menu-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      #menu-screen button {
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        border: 2px solid #333;
+        background-color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 200px;
+      }
+
+      .math-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        /* Increased top padding to 140px to fit the max 120px height of the lollipops */
+        padding: 140px 10px 40px 10px;
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .number {
+        font-size: 28px;
+        font-weight: 800;
+        color: #333;
+        line-height: 1;
+      }
+
+      .lollipop-slot {
+        position: relative;
+        width: 45px;
+        height: 0px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .lollipop-assembly {
+        position: absolute;
+        bottom: -10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .lollipop-candy {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: 2px solid #333;
+        background-color: #fff;
+        font-size: 22px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+        text-align: center;
+        text-align-last: center;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        flex-shrink: 0;
+        z-index: 2;
+      }
+
+      .lollipop-strand {
+        width: 3px;
+        background-color: #333;
+      }
+
+      /* --- MOBILE VIEW COMPACTION --- */
+      @media (max-width: 480px) {
+        .math-row {
+          gap: 4px;
+        }
+        .number {
+          font-size: 22px;
+        }
+        .lollipop-slot {
+          width: 38px;
+        }
+        .lollipop-candy {
+          width: 38px;
+          height: 38px;
+          font-size: 18px;
+        }
+        .lollipop-assembly {
+          bottom: -8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MENU SCREEN -->
+    <div id="menu-screen">
+      <h1>Math Lollipop Game</h1>
+      <button onclick="startGame('easy')">Easy</button>
+      <button onclick="startGame('medium')">Medium</button>
+      <button onclick="startGame('hard')">Hard</button>
+    </div>
+
+    <!-- GAME SCREEN (Hidden by default) -->
+    <div id="game-screen" style="display: none">
+      <div class="math-row">
+        <span class="number" id="number1"></span>
+
+        <div class="lollipop-slot">
+          <div class="lollipop-assembly">
+            <select class="lollipop-candy">
+              <option value="*">*</option>
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="/">/</option>
+            </select>
+            <div class="lollipop-strand"></div>
+          </div>
+        </div>
+
+        <span class="number" id="number2"></span>
+
+        <div class="lollipop-slot">
+          <div class="lollipop-assembly">
+            <select class="lollipop-candy">
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="*">*</option>
+              <option value="/">/</option>
+            </select>
+            <div class="lollipop-strand"></div>
+          </div>
+        </div>
+
+        <span class="number" id="number3"></span>
+
+        <div class="lollipop-slot">
+          <div class="lollipop-assembly">
+            <select class="lollipop-candy">
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="*">*</option>
+              <option value="/">/</option>
+            </select>
+            <div class="lollipop-strand"></div>
+          </div>
+        </div>
+
+        <span class="number" id="number4"></span>
+
+        <div class="lollipop-slot">
+          <div class="lollipop-assembly">
+            <select class="lollipop-candy">
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="*">*</option>
+              <option value="/">/</option>
+            </select>
+            <div class="lollipop-strand"></div>
+          </div>
+        </div>
+
+        <span class="number" id="number5"></span>
+      </div>
+    </div>
+    <script>
+      /*
+      The following function gives a random length to the lollipop strand
+      */
+      document.addEventListener("DOMContentLoaded", () => {
+        const strands = document.querySelectorAll(".lollipop-strand");
+        strands.forEach((strand) => {
+          const randomHeight = Math.floor(Math.random() * 60) + 15;
+          strand.style.height = `${randomHeight}px`;
+        });
+      });
+      /*
+      END
+      */
+
+      /*
+      The following function loads the game
+      */
+      // The main function triggered by the menu buttons
+      function startGame(difficulty) {
+        let min, max;
+
+        // 1. Set the min/max values based on the button clicked
+        if (difficulty === "easy") {
+          min = 1;
+          max = 9;
+        } else if (difficulty === "medium") {
+          min = 10;
+          max = 99;
+        } else if (difficulty === "hard") {
+          min = 100;
+          max = 999;
+        }
+
+        // 2. Generate the numbers using those bounds
+        document.getElementById("number1").innerHTML = getRandomInteger(
+          min,
+          max,
+        );
+        document.getElementById("number2").innerHTML = getRandomInteger(
+          min,
+          max,
+        );
+        document.getElementById("number3").innerHTML = getRandomInteger(
+          min,
+          max,
+        );
+        document.getElementById("number4").innerHTML = getRandomInteger(
+          min,
+          max,
+        );
+        document.getElementById("number5").innerHTML = getRandomInteger(
+          min,
+          max,
+        );
+
+        // 3. Hide the menu and show the game
+        document.getElementById("menu-screen").style.display = "none";
+        document.getElementById("game-screen").style.display = "block";
+      }
+      /*
+      END
+      */
+
+      /*
+      The following function gives random numbers
+      */
+      function getRandomInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+      /*
+      END
+      */
+    </script>
+  </body>
+</html>

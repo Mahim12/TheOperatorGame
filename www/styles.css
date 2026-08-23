@@ -7,6 +7,11 @@ body {
   margin: 0;
   background-color: #f4f5f7;
   overflow-x: hidden;
+
+  /* Disables text selection and long-press copy menus on iOS */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #menu-screen {

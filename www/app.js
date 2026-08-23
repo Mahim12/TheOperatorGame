@@ -81,3 +81,17 @@ function cycleOperator(buttonElement) {
   // Update the button text
   buttonElement.innerText = operators[nextIndex];
 }
+
+// Suppress iOS double-tap and hold magnifying glass loupe
+let lastTouchEnd = 0;
+document.addEventListener(
+  "touchend",
+  function (event) {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault(); // Prevents the second tap from triggering the iOS text magnifier
+    }
+    lastTouchEnd = now;
+  },
+  { passive: false },
+);

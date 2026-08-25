@@ -110,21 +110,29 @@ body {
     gap: 4px;
   }
   .number {
-    font-size: 22px;
+    font-size: 15px;
+    font-weight: 800;
+    color: #333;
+    background-color: #ffffff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 0 #333;
+    line-height: 1;
   }
   /* Default / Easy slot width */
   .math-row .lollipop-slot {
-    width: 55px;
+    width: 36px;
   }
 
   /* Medium difficulty slot width */
   .math-row.medium-difficulty .lollipop-slot {
-    width: 40px;
+    width: 24px;
   }
 
   /* Hard difficulty slot width */
   .math-row.hard-difficulty .lollipop-slot {
-    width: 25px;
+    width: 12px;
   }
 
   .lollipop-candy {

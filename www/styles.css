@@ -21,15 +21,41 @@ body {
   gap: 20px;
 }
 
-#menu-screen button {
-  padding: 15px 30px;
-  font-size: 18px;
-  font-weight: bold;
-  border: 2px solid #333;
-  background-color: #fff;
-  border-radius: 8px;
+/* The container holding both the image and the text */
+.menu-btn-wrapper {
+  position: relative;
+  display: block; /* Stack them vertically */
+  margin: 20px auto; /* Space them out and center them */
+  width: 200px; /* Match this to your image width! */
   cursor: pointer;
-  width: 200px;
+  transition: transform 0.1s ease;
+}
+
+/* Make it shrink slightly when clicked */
+.menu-btn-wrapper:active {
+  transform: scale(0.95);
+}
+
+/* The button image */
+.image-btn-bg {
+  width: 100%;
+  display: block;
+}
+
+/* The text sitting on top */
+.btn-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Pulls the text perfectly to the center */
+
+  font-size: 24px; /* Adjust to look good on your image */
+  font-weight: bold;
+  color: white; /* Make sure it contrasts with your button.png */
+  font-family: sans-serif;
+
+  /* Critical: This stops the text from intercepting clicks meant for the wrapper */
+  pointer-events: none;
 }
 
 #game-screen {

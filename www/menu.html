@@ -1,7 +1,21 @@
 <div id="menu-screen">
   <h1>The Operator</h1>
-  <!-- Instead of calling startGame directly, we call navigation functions -->
-  <button onclick="loadGame('easy')">Easy</button>
-  <button onclick="loadGame('medium')">Medium</button>
-  <button onclick="loadGame('hard')">Hard</button>
+
+  <!-- Easy Button -->
+  <div class="menu-btn-wrapper" onclick="loadGame('easy')">
+    <img src="button.png" alt="Easy" class="image-btn-bg" />
+    <span class="btn-text">Easy</span>
+  </div>
+
+  <!-- Medium Button -->
+  <div class="menu-btn-wrapper" onclick="loadGame('medium')">
+    <img src="button.png" alt="Medium" class="image-btn-bg" />
+    <span class="btn-text">Medium</span>
+  </div>
+
+  <!-- Hard Button -->
+  <div class="menu-btn-wrapper" onclick="loadGame('hard')">
+    <img src="button.png" alt="Hard" class="image-btn-bg" />
+    <span class="btn-text">Hard</span>
+  </div>
 </div>

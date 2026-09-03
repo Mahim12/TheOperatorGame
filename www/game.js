@@ -117,45 +117,6 @@ async function loadGame(difficulty) {
 }
 
 // 6. Check Answer Logic
-// function checkAnswer() {
-//   // 1. Get all the numbers from the screen
-//   const n1 = document.getElementById("number1").innerText;
-//   const n2 = document.getElementById("number2").innerText;
-//   const n3 = document.getElementById("number3").innerText;
-//   const n4 = document.getElementById("number4").innerText;
-//   const n5 = document.getElementById("number5").innerText;
-
-//   // 2. Get all the operators the player has currently selected
-//   // We use .trim() just in case there are invisible spaces around the text
-//   const op1 = document.getElementById("operator1").innerText.trim();
-//   const op2 = document.getElementById("operator2").innerText.trim();
-//   const op3 = document.getElementById("operator3").innerText.trim();
-//   const op4 = document.getElementById("operator4").innerText.trim();
-
-//   // 3. Build the player's mathematical expression
-//   const playerExpression = n1 + op1 + n2 + op2 + n3 + op3 + n4 + op4 + n5;
-
-//   // 4. Calculate what their expression equals
-//   const playerResult = eval(playerExpression);
-
-//   // 5. Get the target answer that is displayed on the screen
-//   const targetAnswer = Number(document.getElementById("answer").innerText);
-
-//   // 6. Check if they match and show the result!
-//   console.log("Player's expression:", playerExpression);
-//   console.log("Player's result:", playerResult);
-//   console.log("Target was:", targetAnswer);
-
-//   if (playerResult === targetAnswer) {
-//     alert("🎉 Correct! You matched the target!");
-//   } else {
-//     alert(
-//       `Not quite! Your current operators equal ${playerResult}. Keep trying!`,
-//     );
-//   }
-// }
-
-// 6. Check Answer Logic
 function checkAnswer() {
   // If they already used their 3 tries, stop them from guessing again
   if (numOfTries >= 3) {

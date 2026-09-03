@@ -9,7 +9,7 @@
           id="operator1"
           onclick="cycleOperator(this)"
         >
-          +
+          --
         </button>
         <div class="lollipop-strand"></div>
       </div>
@@ -24,7 +24,7 @@
           id="operator2"
           onclick="cycleOperator(this)"
         >
-          +
+          --
         </button>
         <div class="lollipop-strand"></div>
       </div>
@@ -39,7 +39,7 @@
           id="operator3"
           onclick="cycleOperator(this)"
         >
-          +
+          --
         </button>
         <div class="lollipop-strand"></div>
       </div>
@@ -54,12 +54,23 @@
           id="operator4"
           onclick="cycleOperator(this)"
         >
-          +
+          --
         </button>
         <div class="lollipop-strand"></div>
       </div>
     </div>
 
     <span class="number" id="number5"></span>
+  </div>
+
+  <div class="math-answer">
+    <span class="number" id="answer"></span>
+
+    <button
+      onclick="checkAnswer()"
+      style="margin-top: 20px; padding: 10px 20px; font-size: 18px"
+    >
+      Check Answer
+    </button>
   </div>
 </div>
